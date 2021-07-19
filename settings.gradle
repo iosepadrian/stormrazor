@@ -1,0 +1,2 @@
+rootProject.name = "Stormrazor"
+include ':app'
