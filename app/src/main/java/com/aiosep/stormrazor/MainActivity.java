@@ -63,20 +63,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnMyIte
 
         myAdapter.setOnMyItemClickListener(this::onMyItemClick);
 
-        Glide.with(this)
-                .load("https://i.imgur.com/MOmksUG.png")
-                .into(new CustomTarget<Drawable>() {
-                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                    @Override
-                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-                        findViewById(R.id.toplayout).setBackground(resource);
-                    }
 
-                    @Override
-                    public void onLoadCleared(@Nullable Drawable placeholder) {
-
-                    }
-                });
 
         RadioGroup radioGroup=findViewById(R.id.radiogroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
