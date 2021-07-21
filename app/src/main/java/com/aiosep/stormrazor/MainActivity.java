@@ -1,33 +1,17 @@
 package com.aiosep.stormrazor;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.res.ColorStateList;
-import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.RecordingCanvas;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.telephony.ims.ImsManager;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnMyIte
     private RecyclerView mRecycleView;
     private MyAdapter myAdapter;
     private RecyclerView.LayoutManager manager;
+
+
 
 
     private List<Location> locationList=new ArrayList<Location>();
@@ -89,6 +75,18 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnMyIte
                 }
             }
         });
+
+        FloatingActionButton myFAB=(FloatingActionButton) findViewById(R.id.myFAB);
+        myFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SearchFragment searchFragment=SearchFragment.newInstance();
+                searchFragment.show(getSupportFragmentManager(),"searchFragmentTag");
+            }
+        });
+
+
     }
 
     @Override

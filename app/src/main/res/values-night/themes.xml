@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Stormrazor" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
@@ -23,5 +23,13 @@
         <item name="cornerSizeTopLeft">@dimen/margin_20</item>
         <item name="cornerSizeTopRight">20dp</item>
 
+    </style>
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="colorOnSurface">@color/blue</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+    <style name="ButtonStyle" parent="android:style/Widget.Button">
+        <item name="android:background">@color/blue</item>
     </style>
 </resources>

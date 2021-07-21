@@ -125,5 +125,32 @@
     </androidx.recyclerview.widget.RecyclerView>
 
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/myFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/blue"
+        android:clickable="true"
+        app:backgroundTint="@color/white"
+        app:tint="@color/white"
+        app:srcCompat="?android:attr/actionModeWebSearchDrawable"
+        ></com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/searchFragment"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+
+
+    </androidx.fragment.app.FragmentContainerView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

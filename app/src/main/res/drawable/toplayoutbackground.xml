@@ -5,8 +5,10 @@
         android:bottomLeftRadius="@dimen/margin_20"
         />
     <gradient
-        android:type="radial"
-        android:angle="0"
-        android:startColor="#87CEEB"
-        android:endColor="#B0E0E6" />
+
+        android:type="linear"
+        android:angle="270"
+        android:startColor="#00BFFF"
+        android:endColor="#B0E0E6"
+        />
 </shape>
