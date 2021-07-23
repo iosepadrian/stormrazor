@@ -1,6 +1,7 @@
 package com.aiosep.stormrazor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -22,7 +24,7 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
-    private final List<Location> mLocationList;
+    private List<Location> mLocationList;
     private OnMyItemClickListener mListener;
     private final Context mContext;
 
@@ -32,7 +34,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         mLocationList = locationList;
     }
 
-
+    public MyAdapter(Context mContext) {
+        this.mContext = mContext;
+    }
 
     @NonNull
     @Override
@@ -55,6 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        public CardView mView;
         public TextView name;
         public TextView coordonate;
         public TextView temperature;
@@ -63,6 +68,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            mView=itemView.findViewById(R.id.locationcardview);
             name=itemView.findViewById(R.id.cityTextView);
             coordonate=itemView.findViewById(R.id.coordonateTextView);
             temperature=itemView.findViewById(R.id.temperatureTextView);
@@ -94,6 +100,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
                         }
                     });
+            mView.setOnClickListener(v->{mListener.onMyItemClickListener();
+            Intent intent=new Intent(mContext,DetailActivity.class);
+            intent.putExtra("nume",location.getName());
+            mContext.startActivity(intent);
+            });
         }
     }
 

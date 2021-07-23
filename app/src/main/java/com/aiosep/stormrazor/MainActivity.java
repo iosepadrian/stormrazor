@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,10 +26,9 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnMyIte
     private MyAdapter myAdapter;
     private RecyclerView.LayoutManager manager;
 
+private LocationDatabase mDb;
 
 
-
-    private List<Location> locationList=new ArrayList<Location>();
 
 
 
@@ -39,16 +39,20 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnMyIte
         setContentView(R.layout.activity_main);
         Log.v(tag," on create ");
 
-        addCities();
         mRecycleView=findViewById(R.id.main_recycler_view);
+
+
+        mDb=LocationDatabase.getInstance(getApplicationContext());
 
         manager=new LinearLayoutManager(this);
         mRecycleView.setLayoutManager(manager);
-        myAdapter=new MyAdapter(this,locationList);
+        myAdapter=new MyAdapter(this,mDb.locationDao().getLocationList());
         mRecycleView.setAdapter(myAdapter);
 
         myAdapter.setOnMyItemClickListener(this::onMyItemClick);
 
+
+        Log.v(tag,mDb.locationDao().getLocationList().toString());
 
 
         RadioGroup radioGroup=findViewById(R.id.radiogroup);
@@ -135,16 +139,16 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnMyIte
         Log.v(tag,"click listener");
     }
 
-    public void addCities(){
-        Location l1=new Location("Cluj-Napoca","46.72°N 26.62°E","30°","Clear");
-        Location l2= new Location("London","51.50°N 00.12°E","22°","Rain");
-        Location l3=new Location("New York","40.71°N 74.00°E","24°","Heavy Rain");
-        Location l4=new Location("Santa Cruz","36.96°N -122.02°E","30°","Clouds");
-        Location l5=new Location("Penzance","50.06°N -5.32°E","28°","Heavy Clouds");
-        Location l6=new Location("San Francisco","37.77°N -122.41°E","29°","Sunny");
-        Location l7=new Location("Bucharest","44.43°N 26.10°E","23°","Clear");
-        Location l8=new Location("Budapest","47.50°N 19.06°E","25°","Storm");
-        Location l9=new Location("Berlin","52.51°N 13.37°E","29°","Tsunami");
+    /*public void addCities(){
+        Location l1=new Location(1,"Cluj-Napoca","46.72°N 26.62°E","30°","Clear");
+        Location l2= new Location(2,"London","51.50°N 00.12°E","22°","Rain");
+        Location l3=new Location(3,"New York","40.71°N 74.00°E","24°","Heavy Rain");
+        Location l4=new Location(4,"Santa Cruz","36.96°N -122.02°E","30°","Clouds");
+        Location l5=new Location(5,"Penzance","50.06°N -5.32°E","28°","Heavy Clouds");
+        Location l6=new Location(6,"San Francisco","37.77°N -122.41°E","29°","Sunny");
+        Location l7=new Location(7,"Bucharest","44.43°N 26.10°E","23°","Clear");
+        Location l8=new Location(8,"Budapest","47.50°N 19.06°E","25°","Storm");
+        Location l9=new Location(9,"Berlin","52.51°N 13.37°E","29°","Tsunami");
         locationList.add(l1);
         locationList.add(l2);
         locationList.add(l3);
@@ -154,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnMyIte
         locationList.add(l7);
         locationList.add(l8);
         locationList.add(l9);
-    }
+    }*/
 
 
 }
