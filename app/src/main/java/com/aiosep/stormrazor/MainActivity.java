@@ -4,25 +4,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MainActivity extends AppCompatActivity implements MyAdapter.OnMyItemClickListener {
 
     public String tag="AdrianIosepTag";
     public int indexStart=0;
-
-    private RecyclerView mRecycleView;
+    private final List<Location> myLocations=new ArrayList<>();
+    private  RecyclerView mRecycleView;
     private MyAdapter myAdapter;
     private RecyclerView.LayoutManager manager;
 
@@ -38,11 +45,15 @@ private LocationDatabase mDb;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.v(tag," on create ");
+        Retrofit retrofit =new Retrofit.Builder()
+                .baseUrl("https://www.metaweather.com/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(new OkHttpClient.Builder().build())
+                .build();
+        MyApiService service= retrofit.create(MyApiService.class);
+        mDb=LocationDatabase.getInstance(getApplicationContext());
 
         mRecycleView=findViewById(R.id.main_recycler_view);
-
-
-        mDb=LocationDatabase.getInstance(getApplicationContext());
 
         manager=new LinearLayoutManager(this);
         mRecycleView.setLayoutManager(manager);
@@ -50,9 +61,126 @@ private LocationDatabase mDb;
         mRecycleView.setAdapter(myAdapter);
 
         myAdapter.setOnMyItemClickListener(this::onMyItemClick);
+        for(Location location:mDb.locationDao().getLocationList()){
+            Call<LocationEntity> call=service.getLocationDetails(String.valueOf(location.getId()));
+            call.enqueue(new Callback<LocationEntity>() {
+                @Override
+                public void onResponse(Call<LocationEntity> call, Response<LocationEntity> response) {
+                    LocationEntity locationEntity=response.body();
+                    String temp="";
+                    if (locationEntity!=null){
+                    for (int i=0;i<String.valueOf(locationEntity.getConsolidatedWeather().get(0).getTheTemp()).length();i++){
+                        if(String.valueOf(locationEntity.getConsolidatedWeather().get(0).getTheTemp()).charAt(i)!='.'){
+                            temp+=String.valueOf(locationEntity.getConsolidatedWeather().get(0).getTheTemp()).charAt(i);
+                        }
+                        else
+                            break;
+                    }
+                    temp+="°";
+                    location.setTemperature(temp);
+                    location.setSpec(locationEntity.getConsolidatedWeather().get(0).getWeatherStateName());
+                    location.setSpecabrev(locationEntity.getConsolidatedWeather().get(0).getWeatherStateAbbr());
+                    mDb.locationDao().updateLocation(location);
+                    myLocations.add(location);
+                    myAdapter.setData(myLocations);
+                }}
+
+                @Override
+                public void onFailure(Call<LocationEntity> call, Throwable t) {
+                    Log.v(tag,t.getLocalizedMessage());
+                }
+            });
+        }
 
 
-        Log.v(tag,mDb.locationDao().getLocationList().toString());
+        Call<LocationEntity> call=service.getLocationDetails("868274");
+        call.enqueue(new Callback<LocationEntity>() {
+            @Override
+            public void onResponse(Call<LocationEntity> call, Response<LocationEntity> response) {
+                LocationEntity locationEntity=response.body();
+                String temp="";
+                if(locationEntity!=null) {
+                    for (int i = 0; i < String.valueOf(locationEntity.getConsolidatedWeather().get(0).getTheTemp()).length(); i++) {
+                        if (String.valueOf(locationEntity.getConsolidatedWeather().get(0).getTheTemp()).charAt(i) != '.') {
+                            temp += String.valueOf(locationEntity.getConsolidatedWeather().get(0).getTheTemp()).charAt(i);
+                        } else
+                            break;
+                    }
+                    TextView myTemperature = findViewById(R.id.myLocationTemperatureTextView);
+                    myTemperature.setText(temp);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LocationEntity> call, Throwable t) {
+
+            }
+        });
+
+
+
+        ///////////////////////   MAKE THE CALL //////////////////////////////
+
+
+        /*Call<LocationEntity> call1=service.getLocationDetails("2459115");
+        call1.enqueue(new Callback<LocationEntity>() {
+            @Override
+            public void onResponse(Call<LocationEntity> call, Response<LocationEntity> response) {
+                LocationEntity locationEntity=response.body();
+                Log.v(tag,locationEntity.toString());
+
+
+
+                //set the temperature
+                String temp="";
+                for (int i=0;i<String.valueOf(locationEntity.getConsolidatedWeather().get(0).getTheTemp()).length();i++){
+                    if(String.valueOf(locationEntity.getConsolidatedWeather().get(0).getTheTemp()).charAt(i)!='.'){
+                        temp+=String.valueOf(locationEntity.getConsolidatedWeather().get(0).getTheTemp()).charAt(i);
+                    }
+                    else
+                        break;
+                }
+                temp+="°";
+
+                //set the coordinates
+
+                String coordonate="";
+                if(locationEntity.getLattLong().length()>4)
+                    coordonate+=locationEntity.getLattLong().substring(0,5);
+                else coordonate+=locationEntity.getLattLong();
+                coordonate+="°N ";
+                String[] arrOfStr = locationEntity.getLattLong().split(",", 2);
+                String longit=arrOfStr[1];
+                String[] arrOfStr2= longit.split("\\.",2);
+                coordonate+=arrOfStr2[0];
+                coordonate+=".";
+                if(arrOfStr2[1].length()>1)
+                    coordonate+=arrOfStr2[1].substring(0,2);
+                else coordonate+=arrOfStr2[1];
+                coordonate+="°E";
+
+                Location location=new Location(locationEntity.getWoeid(),locationEntity.getTitle(),coordonate,
+                        temp,
+                        locationEntity.getConsolidatedWeather().get(0).getWeatherStateName(),locationEntity.getConsolidatedWeather().get(0).getWeatherStateAbbr());
+
+                Log.v(tag,location.toString());
+                mDb.locationDao().insertLocation(location);
+
+            }
+
+            @Override
+            public void onFailure(Call<LocationEntity> call, Throwable t) {
+                Log.v(tag,t.getLocalizedMessage());
+
+            }
+        });*/
+
+
+
+
+        /////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
         RadioGroup radioGroup=findViewById(R.id.radiogroup);
@@ -61,12 +189,30 @@ private LocationDatabase mDb;
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 if (checkedId==R.id.Fradio) {
-                    //chenge the color of the buttons
+                    //change the color of the buttons
                     Log.v(tag, "Far checked");
                     RadioButton radioButtonC = findViewById(R.id.Cradio);
                     radioButtonC.setTextColor(Color.parseColor("#808080"));
                     RadioButton radioButtonF = findViewById(R.id.Fradio);
                     radioButtonF.setTextColor(Color.parseColor("#FFFFFFFF"));
+
+                    /*for (int x = mRecycleView.getChildCount(), i = 0; i < x; ++i) {
+                        RecyclerView.ViewHolder holder = mRecycleView.getChildViewHolder(mRecycleView.getChildAt(i));
+                        TextView txtTemp      = holder.itemView.findViewById(R.id.temperatureTextView);
+                        String t11=txtTemp.getText().toString();
+                        int temp1=Integer.parseInt(t11.substring(0,t11.length()-1));
+                        int newtemp1=(int)Math.round(temp1*1.8 +32);
+                        String newtemp11=String.valueOf(newtemp1)+"°";
+                        txtTemp.setText(newtemp11);
+                    }*/
+                    for (Location location:myLocations){
+                        String t11=location.getTemperature();
+                        int temp1=Integer.parseInt(t11.substring(0,t11.length()-1));
+                        int newtemp1=(int)Math.round(temp1*1.8 +32);
+                        location.setTemperature(String.valueOf(newtemp1)+"°");
+                    }
+                    myAdapter.setData(myLocations);
+
                 }
                 if(checkedId==R.id.Cradio) {
 
@@ -76,6 +222,14 @@ private LocationDatabase mDb;
                     radioButtonC.setTextColor(Color.parseColor("#FFFFFFFF"));
                     RadioButton radioButtonF = findViewById(R.id.Fradio);
                     radioButtonF.setTextColor(Color.parseColor("#808080"));
+
+                    for (Location location:myLocations){
+                        String t11=location.getTemperature();
+                        int temp1=Integer.parseInt(t11.substring(0,t11.length()-1));
+                        int newtemp1=(int)Math.round((temp1-32)*0.5556);
+                        location.setTemperature(String.valueOf(newtemp1)+"°");
+                    }
+                    myAdapter.setData(myLocations);
                 }
             }
         });

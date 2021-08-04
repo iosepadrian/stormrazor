@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLayoutSearchDetail"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchDetailsActivity"
+    android:background="#6fbce2">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topConstraintSearchDetail"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/dividerSearchDetail"
+        >
+        <TextView
+            android:id="@+id/dateSearchDetailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+
+            ></TextView>
+
+        <TextView
+            android:id="@+id/locationSearchDetailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/dateSearchDetailTextView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            ></TextView>
+        <ImageView
+            android:id="@+id/locationSearchDetailImageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/locationSearchDetailTextView"
+            app:layout_constraintRight_toLeftOf="@id/specTextViewSearchDetails"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible"
+            ></ImageView>
+
+        <TextView
+            android:id="@+id/specTextViewSearchDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/locationSearchDetailTextView"
+            app:layout_constraintRight_toRightOf="@id/locationSearchDetailTextView"
+            app:layout_constraintLeft_toLeftOf="@+id/locationSearchDetailTextView"
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/margin_20"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/temperatureTextViewSearchDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/specTextViewSearchDetails"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textSize="70dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="invisible"
+
+            ></TextView>
+
+        <TextView
+            android:id="@+id/minTemp1TextViewSearchDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/temperatureTextViewSearchDetail"
+            app:layout_constraintLeft_toLeftOf="@id/temperatureTextViewSearchDetail"
+            android:textColor="@color/white"
+            android:textSize="@dimen/margin_20"
+            android:visibility="invisible"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/maxTemp1TextViewSearchDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/temperatureTextViewSearchDetail"
+            app:layout_constraintRight_toRightOf="@id/temperatureTextViewSearchDetail"
+            android:textColor="@color/white"
+            android:textSize="@dimen/margin_20"
+            android:visibility="invisible"
+            ></TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <View
+        android:id="@+id/dividerSearchDetail"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/topConstraintSearchDetail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/white"
+        android:visibility="invisible"
+        ></View>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/SearchDetail_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/dividerSearchDetail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#96d0ed"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+    <View
+        android:id="@+id/divider2SearchDetail"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/SearchDetail_recyclerView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/white"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        ></View>
+
+    <TextView
+        android:id="@+id/windspeedSearchDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/divider2SearchDetail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:text="Wind Speed"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible"
+        ></TextView>
+    <TextView
+        android:id="@+id/windSpeedValueSearchDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/windspeedSearchDetailTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/winddirectionSearchDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/divider2SearchDetail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:text="Wind Direction"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="200dp"
+        android:visibility="invisible"
+        ></TextView>
+    <TextView
+        android:id="@+id/windDirectionValueSearchDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/windspeedSearchDetailTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="200dp"
+        android:visibility="invisible"
+        ></TextView>
+
+    <View
+        android:id="@+id/divider3SearchDetail"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/windDirectionValueSearchDetailTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/white"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        ></View>
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/airpressureSearchDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/divider3SearchDetail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:text="Air Pressure"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible"
+        ></TextView>
+    <TextView
+        android:id="@+id/airPressureValueSearchDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/airpressureSearchDetailTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/HumiditySearchDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/divider3SearchDetail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:text="Humidity"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="200dp"
+        android:visibility="invisible"
+        ></TextView>
+    <TextView
+        android:id="@+id/HumidityValueSearchDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/HumiditySearchDetailTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="200dp"
+        android:visibility="invisible"
+        ></TextView>
+
+    <View
+        android:id="@+id/divider4SearchDetail"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/HumidityValueSearchDetailTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/white"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        ></View>
+
+
+
+
+
+    <TextView
+        android:id="@+id/visibilitySearchDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/divider4SearchDetail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:text="Visibility"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible"
+        ></TextView>
+    <TextView
+        android:id="@+id/visibilityValueSearchDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/visibilitySearchDetailTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp"
+        android:visibility="invisible"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/PredictabilitySearchDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/divider4SearchDetail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:text="Predictability"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="200dp"
+        android:visibility="invisible"
+        ></TextView>
+    <TextView
+        android:id="@+id/predictabilityValueSearchDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/PredictabilitySearchDetailTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="200dp"
+        android:visibility="invisible"
+        ></TextView>
+
+    <View
+        android:id="@+id/divider5SearchDetail"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/predictabilityValueSearchDetailTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/white"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        ></View>
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarSearchDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@drawable/toolbar_bg"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@android:color/transparent"
+                android:textColor="@color/white"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+
+                android:text="Add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ProgressBar
+        android:id="@+id/searchDetailProgressBar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="invisible"
+        android:indeterminateTint="@color/white"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

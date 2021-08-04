@@ -18,7 +18,7 @@
             android:id="@+id/dailydetailsLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/blue"
+            android:background="#6fbce2"
             >
             <TextView
                 android:id="@+id/dayTextView"

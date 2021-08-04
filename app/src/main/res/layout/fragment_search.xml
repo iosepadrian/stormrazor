@@ -29,6 +29,8 @@
         android:textStyle="bold"
         android:layout_marginLeft="10dp"
         android:textColor="@color/black"
+        android:paddingTop="5dp"
+        android:paddingLeft="5dp"
         ></TextView>
         
         <com.google.android.material.textfield.TextInputLayout
@@ -40,16 +42,16 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            app:hintTextColor="@color/blue"
+            app:hintTextColor="#5692b0"
             android:theme="@style/TextInputLayoutStyle"
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name"
                 android:textColor="@color/black"
-                android:textCursorDrawable="@color/blue"
                 ></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,6 +67,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
+            android:paddingLeft="5dp"
             ></TextView>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -75,14 +78,16 @@
             app:layout_constraintTop_toBottomOf="@id/coordSearchTextView"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginLeft="10dp"
-            app:hintTextColor="@color/blue"
+            app:hintTextColor="#5692b0"
             android:theme="@style/TextInputLayoutStyle"
             >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/latInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Lat"
+                android:textColor="@color/black"
                 ></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,18 +99,21 @@
             app:layout_constraintTop_toBottomOf="@id/coordSearchTextView"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginRight="10dp"
-            app:hintTextColor="@color/blue"
+            app:hintTextColor="#5692b0"
             android:theme="@style/TextInputLayoutStyle"
 
             >
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/longInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Long"
+                android:textColor="@color/black"
                 ></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/searchButtonFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"

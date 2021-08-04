@@ -6,12 +6,28 @@ public class LocationDetails {
     public String percentage;
     public String maxTemp;
     public String minTemp;
-
+    public String specAbrev;
     public LocationDetails(String day, String percentage, String maxTemp, String minTemp) {
         this.day = day;
         this.percentage = percentage;
         this.maxTemp = maxTemp;
         this.minTemp = minTemp;
+    }
+
+    public String getSpecAbrev() {
+        return specAbrev;
+    }
+
+    public void setSpecAbrev(String specAbrev) {
+        this.specAbrev = specAbrev;
+    }
+
+    public LocationDetails(String day, String percentage, String maxTemp, String minTemp, String specAbrev) {
+        this.day = day;
+        this.percentage = percentage;
+        this.maxTemp = maxTemp;
+        this.minTemp = minTemp;
+        this.specAbrev = specAbrev;
     }
 
     public void setDay(String day) {
@@ -44,5 +60,15 @@ public class LocationDetails {
 
     public String getMinTemp() {
         return minTemp;
+    }
+
+    @Override
+    public String toString() {
+        return "LocationDetails{" +
+                "day='" + day + '\'' +
+                ", percentage='" + percentage + '\'' +
+                ", maxTemp='" + maxTemp + '\'' +
+                ", minTemp='" + minTemp + '\'' +
+                '}';
     }
 }

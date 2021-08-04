@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="@dimen/margin_20"
+            android:layout_marginTop="10dp"
             android:text="My Location"
             android:textColor="@color/white"
             android:textSize="35dp"
@@ -39,17 +39,37 @@
             ></TextView>
 
         <TextView
+            android:id="@+id/myLocationTemperatureTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/mylocationtextview"
+            android:text="30"
+            android:textColor="@color/white"
+            android:textSize="55dp"
+            android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:text="30°"
+            app:layout_constraintTop_toBottomOf="@+id/mylocationtextview"></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/myLocationTemperatureTextView"
+            app:layout_constraintTop_toTopOf="@id/myLocationTemperatureTextView"
+            android:text="°"
             android:textStyle="bold"
             android:textSize="55dp"
             android:textColor="@color/white"
-            >
-        </TextView>
+            ></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/myLocationTemperatureTextView"
+            app:layout_constraintLeft_toLeftOf="@id/myLocationTemperatureTextView"
+            app:layout_constraintRight_toRightOf="@id/myLocationTemperatureTextView"
+            android:textColor="#DCDCDC"
+            android:text="Clear"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            ></TextView>
 
         <RadioGroup
             android:id="@+id/radiogroup"
@@ -78,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:text="/"
                 android:textSize="@dimen/citySize"
-                android:textColor="@color/grey"
+                android:textColor="#DCDCDC"
                 ></TextView>
 
             <RadioButton
@@ -86,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="°F"
-                android:textColor="@color/grey"
+                android:textColor="#DCDCDC"
                 android:textSize="@dimen/citySize"
                 android:layoutDirection="rtl"
                 android:textDirection="ltr"
@@ -133,7 +153,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="#5692b0"
         android:clickable="true"
         app:backgroundTint="@color/white"
         app:tint="@color/white"

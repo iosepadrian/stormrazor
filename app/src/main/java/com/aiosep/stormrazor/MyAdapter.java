@@ -52,9 +52,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
     }
 
+    public void updateLocation(Location location){
+
+        for (int i=0;i<=mLocationList.size();i++){
+            if(mLocationList.get(i).getId()==location.getId()){
+                mLocationList.add(i,location);
+                notifyDataSetChanged();
+            }
+        }
+
+    }
+
     @Override
     public int getItemCount() {
         return mLocationList.size();
+    }
+
+    public void setData(List<Location> myLocations) {
+        this.mLocationList=myLocations;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -82,27 +98,53 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
             temperature.setText(location.getTemperature());
             spec.setText(location.getSpec());
             img.setImageResource(R.drawable.icon_2);
+            String url="https://www.metaweather.com/static/img/weather/png/";
+            url+=location.getSpecabrev();
+            url+=".png";
             Glide.with(mContext)
-                    .load("https://i.imgur.com/wKSN3ik.png")
+                    .load(url)
                     .into(img);
 
-            Glide.with(mContext)
-                    .load("https://i.imgur.com/MOmksUG.png")
-                    .into(new CustomTarget<Drawable>() {
-                        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-                        @Override
-                        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-                            itemView.findViewById(R.id.locationLayout).setBackground(resource);
-                        }
+            switch (location.getSpecabrev()){
+                case "s":
+                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.s);
+                    break;
+                case "sn":
+                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.sn);
+                    break;
+                case "sl":
+                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.sl);
+                    break;
+                case "h":
+                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.h);
+                    break;
+                case "t":
+                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.t);
+                    break;
+                case "hr":
+                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.hr);
+                    break;
+                case "lr":
+                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.lr);
+                    break;
+                case "hc":
+                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.hc);
+                    break;
+                case "lc":
+                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.lc);
+                    break;
+                case "c":
+                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.c);
+                    break;
+            }
 
-                        @Override
-                        public void onLoadCleared(@Nullable Drawable placeholder) {
-
-                        }
-                    });
             mView.setOnClickListener(v->{mListener.onMyItemClickListener();
             Intent intent=new Intent(mContext,DetailActivity.class);
-            intent.putExtra("nume",location.getName());
+            intent.putExtra("woeid",String.valueOf(location.getId()));
+            intent.putExtra("name",location.getName());
+            intent.putExtra("temperature",location.getTemperature());
+            intent.putExtra("spec",location.getSpec());
+            intent.putExtra("specabrev",location.getSpecabrev());
             mContext.startActivity(intent);
             });
         }
