@@ -10,4 +10,5 @@
     <color name="blue">#00BFFF</color>
     <color name="grey">#808080	</color>
     <color name="default_blue">#96d0ed</color>
+    <color name="low_grey">#DCDCDC</color>
 </resources>

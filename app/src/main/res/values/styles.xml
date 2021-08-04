@@ -1,3 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Regular">
+        <item name="fontFamily">
+            @font/proxima_nova_regular
+        </item>
+    </style>
+    <style name="Bold">
+        <item name="fontFamily">
+            @font/proxima_nova_bold
+        </item>
+    </style>
+    <style name="AltBold">
+        <item name="fontFamily">
+            @font/proxima_nova_alt_bold
+        </item>
+    </style>
+    <style name="AltRegular">
+        <item name="fontFamily">
+            @font/proxima_nova_alt_regular
+        </item>
+    </style>
 </resources>

@@ -22,7 +22,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="@dimen/margin_20"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
+        style="@style/AltRegular"
 
         ></TextView>
 
@@ -33,8 +34,9 @@
         app:layout_constraintTop_toBottomOf="@id/dateTextView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
         android:textSize="30dp"
-        android:textStyle="bold"
+        style="@style/AltBold"
         android:textColor="@color/white"
         ></TextView>
     <ImageView
@@ -58,6 +60,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/margin_20"
         android:layout_marginTop="10dp"
+        style="@style/AltRegular"
         ></TextView>
 
     <TextView
@@ -69,7 +72,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:textSize="70dp"
         android:textColor="@color/white"
-        android:textStyle="bold"
+        style="@style/AltRegular"
 
         ></TextView>
 
@@ -79,8 +82,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/temperatureTextViewDetalis"
         app:layout_constraintLeft_toLeftOf="@id/temperatureTextViewDetalis"
+        app:layout_constraintRight_toLeftOf="@id/maxTemp1TextViewDetails"
         android:textColor="@color/white"
         android:textSize="@dimen/margin_20"
+        android:layout_marginRight="1dp"
+        style="@style/AltRegular"
         ></TextView>
 
     <TextView
@@ -89,8 +95,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/temperatureTextViewDetalis"
         app:layout_constraintRight_toRightOf="@id/temperatureTextViewDetalis"
+        app:layout_constraintLeft_toRightOf="@id/minTemp1TextViewDetails"
         android:textColor="@color/white"
         android:textSize="@dimen/margin_20"
+        android:layout_marginLeft="1dp"
+        style="@style/AltRegular"
         ></TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -103,7 +112,8 @@
         app:layout_constraintTop_toBottomOf="@id/topConstraintDetail"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/white"
+        android:background="@color/low_grey"
+        style="@style/Regular"
         ></View>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -124,9 +134,10 @@
         app:layout_constraintTop_toBottomOf="@id/detail_recyclerView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/white"
+        android:background="@color/low_grey"
         android:layout_marginTop="5dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></View>
 
     <TextView
@@ -135,12 +146,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/divider2"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
         android:textSize="15dp"
         android:text="Wind Speed"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></TextView>
     <TextView
         android:id="@+id/windSpeedValueTextView"
@@ -150,8 +162,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="30dp"
         android:textColor="@color/white"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></TextView>
 
     <TextView
@@ -160,12 +173,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/divider2"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
         android:textSize="15dp"
         android:text="Wind Direction"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="200dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></TextView>
     <TextView
         android:id="@+id/windDirectionValueTextView"
@@ -177,6 +191,7 @@
         android:textColor="@color/white"
         android:layout_marginLeft="200dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></TextView>
 
     <View
@@ -186,9 +201,12 @@
         app:layout_constraintTop_toBottomOf="@id/windDirectionValueTextView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/white"
+        android:background="@color/low_grey"
         android:layout_marginTop="5dp"
         android:visibility="invisible"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        style="@style/Regular"
         ></View>
 
 
@@ -202,12 +220,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/divider3"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
         android:textSize="15dp"
         android:text="Air Pressure"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></TextView>
     <TextView
         android:id="@+id/airPressureValueTextView"
@@ -217,8 +236,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="30dp"
         android:textColor="@color/white"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></TextView>
 
     <TextView
@@ -227,12 +247,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/divider3"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
         android:textSize="15dp"
         android:text="Humidity"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="200dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></TextView>
     <TextView
         android:id="@+id/HumidityValueTextView"
@@ -244,6 +265,7 @@
         android:textColor="@color/white"
         android:layout_marginLeft="200dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></TextView>
 
     <View
@@ -253,9 +275,12 @@
         app:layout_constraintTop_toBottomOf="@id/HumidityValueTextView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/white"
+        android:background="@color/low_grey"
         android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></View>
 
 
@@ -268,12 +293,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/divider4"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
         android:textSize="15dp"
         android:text="Visibility"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></TextView>
     <TextView
         android:id="@+id/visibilityValueTextView"
@@ -283,8 +309,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="30dp"
         android:textColor="@color/white"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></TextView>
 
     <TextView
@@ -293,12 +320,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/divider4"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
         android:textSize="15dp"
         android:text="Predictability"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="200dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></TextView>
     <TextView
         android:id="@+id/predictabilityValueTextView"
@@ -310,6 +338,7 @@
         android:textColor="@color/white"
         android:layout_marginLeft="200dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></TextView>
 
     <View
@@ -319,9 +348,10 @@
         app:layout_constraintTop_toBottomOf="@id/predictabilityValueTextView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/white"
+        android:background="@color/low_grey"
         android:layout_marginTop="5dp"
         android:visibility="invisible"
+        style="@style/Regular"
         ></View>
 
 

@@ -18,6 +18,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class SearchDetailsAdapter extends RecyclerView.Adapter<SearchDetailsAdapter.ViewHolder>{
     private List<LocationDetails> mLocationDetailsList;
@@ -79,11 +80,11 @@ public class SearchDetailsAdapter extends RecyclerView.Adapter<SearchDetailsAdap
             date+=arrOfStrDate[0];
             SimpleDateFormat format1=new SimpleDateFormat("dd/MM/yyyy");
             Date dt1=format1.parse(date);
-            DateFormat format2=new SimpleDateFormat("EEEE");
+            DateFormat format2=new SimpleDateFormat("EEEE", Locale.ENGLISH);
             String finalDay=format2.format(dt1);
 
 
-            day.setText(finalDay);
+            day.setText(finalDay.substring(0, 1).toUpperCase() + finalDay.substring(1));
             percentage.setText(location.getPercentage());
             maxTemp.setText(location.getMaxTemp());
             minTemp.setText(location.getMinTemp());

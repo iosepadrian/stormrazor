@@ -22,7 +22,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="40dp"
             android:layout_marginLeft="@dimen/margin_20"
-            android:textColor="@color/white"
+            android:textColor="@color/low_grey"
+            style="@style/AltRegular"
             android:visibility="invisible"
 
             ></TextView>
@@ -35,7 +36,9 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:textSize="30dp"
-            android:textStyle="bold"
+
+            android:layout_marginTop="20dp"
+            style="@style/AltBold"
             android:textColor="@color/white"
             android:visibility="invisible"
             ></TextView>
@@ -58,10 +61,11 @@
             app:layout_constraintRight_toRightOf="@id/locationSearchDetailTextView"
             app:layout_constraintLeft_toLeftOf="@+id/locationSearchDetailTextView"
             android:layout_marginLeft="25dp"
-            android:textColor="@color/white"
+            android:textColor="@color/low_grey"
             android:textSize="@dimen/margin_20"
             android:layout_marginTop="10dp"
             android:visibility="invisible"
+            style="@style/AltRegular"
             ></TextView>
 
         <TextView
@@ -73,7 +77,7 @@
             app:layout_constraintRight_toRightOf="parent"
             android:textSize="70dp"
             android:textColor="@color/white"
-            android:textStyle="bold"
+            style="@style/AltRegular"
             android:visibility="invisible"
 
             ></TextView>
@@ -84,9 +88,12 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/temperatureTextViewSearchDetail"
             app:layout_constraintLeft_toLeftOf="@id/temperatureTextViewSearchDetail"
+            app:layout_constraintRight_toLeftOf="@+id/maxTemp1TextViewSearchDetail"
+            android:layout_marginRight="1dp"
             android:textColor="@color/white"
             android:textSize="@dimen/margin_20"
             android:visibility="invisible"
+            style="@style/AltRegular"
             ></TextView>
 
         <TextView
@@ -95,9 +102,12 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/temperatureTextViewSearchDetail"
             app:layout_constraintRight_toRightOf="@id/temperatureTextViewSearchDetail"
+            app:layout_constraintLeft_toRightOf="@+id/minTemp1TextViewSearchDetail"
+            android:layout_marginLeft="1dp"
             android:textColor="@color/white"
             android:textSize="@dimen/margin_20"
             android:visibility="invisible"
+            style="@style/AltRegular"
             ></TextView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -110,7 +120,7 @@
         app:layout_constraintTop_toBottomOf="@id/topConstraintSearchDetail"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/white"
+        android:background="@color/low_grey"
         android:visibility="invisible"
         ></View>
 
@@ -131,7 +141,7 @@
         app:layout_constraintTop_toBottomOf="@id/SearchDetail_recyclerView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/white"
+        android:background="@color/low_grey"
         android:layout_marginTop="5dp"
         android:visibility="invisible"
         ></View>
@@ -142,12 +152,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/divider2SearchDetail"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
         android:textSize="15dp"
         android:text="Wind Speed"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></TextView>
     <TextView
         android:id="@+id/windSpeedValueSearchDetailTextView"
@@ -157,8 +168,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="30dp"
         android:textColor="@color/white"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></TextView>
 
     <TextView
@@ -167,12 +179,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/divider2SearchDetail"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
         android:textSize="15dp"
         android:text="Wind Direction"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="200dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></TextView>
     <TextView
         android:id="@+id/windDirectionValueSearchDetailTextView"
@@ -184,6 +197,7 @@
         android:textColor="@color/white"
         android:layout_marginLeft="200dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></TextView>
 
     <View
@@ -193,9 +207,12 @@
         app:layout_constraintTop_toBottomOf="@id/windDirectionValueSearchDetailTextView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/white"
+        android:background="@color/low_grey"
         android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></View>
 
 
@@ -209,12 +226,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/divider3SearchDetail"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
         android:textSize="15dp"
         android:text="Air Pressure"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></TextView>
     <TextView
         android:id="@+id/airPressureValueSearchDetailTextView"
@@ -224,8 +242,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="30dp"
         android:textColor="@color/white"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></TextView>
 
     <TextView
@@ -234,12 +253,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/divider3SearchDetail"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
         android:textSize="15dp"
         android:text="Humidity"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="200dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></TextView>
     <TextView
         android:id="@+id/HumidityValueSearchDetailTextView"
@@ -251,6 +271,7 @@
         android:textColor="@color/white"
         android:layout_marginLeft="200dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></TextView>
 
     <View
@@ -260,9 +281,12 @@
         app:layout_constraintTop_toBottomOf="@id/HumidityValueSearchDetailTextView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/white"
+        android:background="@color/low_grey"
         android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></View>
 
 
@@ -275,12 +299,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/divider4SearchDetail"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
         android:textSize="15dp"
         android:text="Visibility"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></TextView>
     <TextView
         android:id="@+id/visibilityValueSearchDetailTextView"
@@ -290,8 +315,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="30dp"
         android:textColor="@color/white"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="15dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></TextView>
 
     <TextView
@@ -300,12 +326,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/divider4SearchDetail"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@color/white"
+        android:textColor="@color/low_grey"
         android:textSize="15dp"
         android:text="Predictability"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="200dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></TextView>
     <TextView
         android:id="@+id/predictabilityValueSearchDetailTextView"
@@ -317,6 +344,7 @@
         android:textColor="@color/white"
         android:layout_marginLeft="200dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></TextView>
 
     <View
@@ -326,9 +354,10 @@
         app:layout_constraintTop_toBottomOf="@id/predictabilityValueSearchDetailTextView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@color/white"
+        android:background="@color/low_grey"
         android:layout_marginTop="5dp"
         android:visibility="invisible"
+        style="@style/AltRegular"
         ></View>
 
 
@@ -357,7 +386,7 @@
                 android:textColor="@color/white"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-
+                style="@style/AltBold"
                 android:text="Add"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
