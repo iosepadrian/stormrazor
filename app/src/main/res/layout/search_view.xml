@@ -37,7 +37,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
                 android:textSize="@dimen/citySize"
                 style="@style/AltBold"
                 android:textColor="@color/white"
@@ -51,10 +51,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/searchcityTextView"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
                 android:textSize="20sp"
                 style="@style/AltRegular"
-                android:textColor="@color/low_grey"
+                android:textColor="@color/white"
                 ></TextView>
 
             <ImageView

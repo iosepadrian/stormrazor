@@ -192,7 +192,7 @@ private LocationDatabase mDb;
                     //change the color of the buttons
                     Log.v(tag, "Far checked");
                     RadioButton radioButtonC = findViewById(R.id.Cradio);
-                    radioButtonC.setTextColor(Color.parseColor("#808080"));
+                    radioButtonC.setTextColor(Color.parseColor("#DCDCDC"));
                     RadioButton radioButtonF = findViewById(R.id.Fradio);
                     radioButtonF.setTextColor(Color.parseColor("#FFFFFFFF"));
 
@@ -221,7 +221,7 @@ private LocationDatabase mDb;
                     RadioButton radioButtonC = findViewById(R.id.Cradio);
                     radioButtonC.setTextColor(Color.parseColor("#FFFFFFFF"));
                     RadioButton radioButtonF = findViewById(R.id.Fradio);
-                    radioButtonF.setTextColor(Color.parseColor("#808080"));
+                    radioButtonF.setTextColor(Color.parseColor("#DCDCDC"));
 
                     for (Location location:myLocations){
                         String t11=location.getTemperature();

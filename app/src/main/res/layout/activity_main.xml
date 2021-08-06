@@ -67,7 +67,7 @@
             app:layout_constraintTop_toBottomOf="@id/myLocationTemperatureTextView"
             app:layout_constraintLeft_toLeftOf="@id/myLocationTemperatureTextView"
             app:layout_constraintRight_toRightOf="@id/myLocationTemperatureTextView"
-            android:textColor="#DCDCDC"
+            android:textColor="@color/white"
             android:text="Clear"
             android:textSize="20dp"
             style="@style/AltRegular"
@@ -117,6 +117,7 @@
                 style="@style/AltRegular"
                 android:button="@null"
                 app:buttonCompat="@null"
+                android:layout_marginLeft="8dp"
                 >
             </RadioButton>
         </RadioGroup>

@@ -11,4 +11,5 @@
     <color name="grey">#808080	</color>
     <color name="default_blue">#96d0ed</color>
     <color name="low_grey">#DCDCDC</color>
+    <color name="status_bar_color">#5592af</color>
 </resources>

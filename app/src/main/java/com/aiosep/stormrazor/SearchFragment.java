@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,8 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.textfield.TextInputEditText;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,9 +52,14 @@ public class SearchFragment extends BottomSheetDialogFragment{
         super.onCreate(savedInstanceState);
     }
 
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
 
 
         View view = inflater.inflate(R.layout.fragment_search, container, false);
@@ -58,6 +67,35 @@ public class SearchFragment extends BottomSheetDialogFragment{
         TextInputEditText name=view.findViewById(R.id.nameInputEditText);
         TextInputEditText latit=view.findViewById(R.id.latInputEditText);
         TextInputEditText longit=view.findViewById(R.id.longInputEditText);
+        TextWatcher searchTextWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    location.setEnabled(
+                            !(name.getText().toString().length()>0 && latit.getText().toString().length()>0 && longit.getText().toString().length()==0)&&
+                            !(name.getText().toString().length()>0 && latit.getText().toString().length()==00 && longit.getText().toString().length()>0)&&
+                            !(name.getText().toString().length()==0 && latit.getText().toString().length()==0 && longit.getText().toString().length()==0)&&
+                            !(name.getText().toString().length()==0 && latit.getText().toString().length()>0 && longit.getText().toString().length()==0) &&
+                            !(name.getText().toString().length()==0 && latit.getText().toString().length()==0 && longit.getText().toString().length()>0)
+                    );
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        };
+        name.addTextChangedListener(searchTextWatcher);
+        latit.addTextChangedListener(searchTextWatcher);
+        longit.addTextChangedListener(searchTextWatcher);
+
+
+
 
         location.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,84 +105,19 @@ public class SearchFragment extends BottomSheetDialogFragment{
                 bundle.putString("name",name.getText().toString());
                 bundle.putString("latit",latit.getText().toString());
                 bundle.putString("longit",longit.getText().toString());
-                if(name.getText().toString().length()>0 && latit.getText().toString().length()>0 && longit.getText().toString().length()==0){
-                    AlertDialog.Builder builder=new AlertDialog.Builder(v.getContext());
-                    builder.setTitle("Error");
-                    builder.setMessage("You must select the longitude");
-                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    });
-                    AlertDialog alertDialog=builder.create();
-                    alertDialog.show();
-                }else {
-                if(name.getText().toString().length()>0 && latit.getText().toString().length()==00 && longit.getText().toString().length()>0){
-                    AlertDialog.Builder builder=new AlertDialog.Builder(v.getContext());
-                    builder.setTitle("Error");
-                    builder.setMessage("You must select the latitude");
-                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    });
-                    AlertDialog alertDialog=builder.create();
-                    alertDialog.show();
-                }else {
-                if(name.getText().toString().length()==0 && latit.getText().toString().length()==0 && longit.getText().toString().length()==0){
-                    AlertDialog.Builder builder=new AlertDialog.Builder(v.getContext());
-                    builder.setTitle("Error");
-                    builder.setMessage("You must complete the inputs");
-                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    });
-                    AlertDialog alertDialog=builder.create();
-                    alertDialog.show();
-                }else {
-                if(name.getText().toString().length()==0 && latit.getText().toString().length()>0 && longit.getText().toString().length()==0){
-                    AlertDialog.Builder builder=new AlertDialog.Builder(v.getContext());
-                    builder.setTitle("Error");
-                    builder.setMessage("You mush select the longitude");
-                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    });
-                    AlertDialog alertDialog=builder.create();
-                    alertDialog.show();
-                }else {
-                if(name.getText().toString().length()==0 && latit.getText().toString().length()==0 && longit.getText().toString().length()>0){
-                    AlertDialog.Builder builder=new AlertDialog.Builder(v.getContext());
-                    builder.setTitle("Error");
-                    builder.setMessage("You mush select the latitude");
-                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    });
-                    AlertDialog alertDialog=builder.create();
-                    alertDialog.show();
-                }
 
-                else {
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
                     intent.putExtra("bundle", bundle);
                     getActivity().startActivity(intent);
                     dismiss();
                 }
-            }}}}}
+
         });
 
         // Inflate the layout for this fragment
         return view;
     }
+
 
 
 }

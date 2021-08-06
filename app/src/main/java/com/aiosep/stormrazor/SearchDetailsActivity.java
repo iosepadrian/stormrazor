@@ -386,7 +386,7 @@ public class SearchDetailsActivity extends AppCompatActivity {
                 finish();
             }
         });
-        Button button=findViewById(R.id.addButton);
+        TextView button=findViewById(R.id.addButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -480,13 +480,14 @@ public class SearchDetailsActivity extends AppCompatActivity {
                                 public void run() {
                                     // if you are redirecting from a fragment then use getActivity() as the context.
                                     Intent intent=new Intent(SearchDetailsActivity.this,MainActivity.class);
-                                    SearchDetailsActivity.this.startActivity(intent);
-                                    // To close the CurrentActitity, r.g. SpalshActivity
+                                    startActivity(intent);
                                     finish();
+                                    // To close the CurrentActitity, r.g. SpalshActivity
+
                                 }
                             };
                             Handler h = new Handler();
-                            h.postDelayed(r, 3500);
+                            h.postDelayed(r, 4000);
                         }
 
                     }

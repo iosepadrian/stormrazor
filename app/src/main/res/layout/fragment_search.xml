@@ -128,8 +128,11 @@
             android:text="SEARCH"
             android:textSize="@dimen/margin_20"
             style="@style/AltBold"
-            android:background="@drawable/rounded_corners"
+            app:backgroundTint="@null"
+            android:background="@drawable/button_design"
+            android:enabled="false"
             android:textColor="@color/white"
+
             ></Button>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

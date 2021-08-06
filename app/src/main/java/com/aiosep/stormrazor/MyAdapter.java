@@ -81,6 +81,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         public TextView temperature;
         public TextView spec;
         public ImageView img;
+        public ImageView backgroundimg;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -90,6 +91,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
             temperature=itemView.findViewById(R.id.temperatureTextView);
             spec=itemView.findViewById(R.id.specTextView);
             img=itemView.findViewById(R.id.imgView);
+            backgroundimg=itemView.findViewById(R.id.backgroundImage);
         }
 
         public void bind(Location location) {
@@ -107,34 +109,34 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
 
             switch (location.getSpecabrev()){
                 case "s":
-                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.s);
+                    backgroundimg.setImageResource(R.drawable.s);
                     break;
                 case "sn":
-                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.sn);
+                    backgroundimg.setImageResource(R.drawable.sn);
                     break;
                 case "sl":
-                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.sl);
+                    backgroundimg.setImageResource(R.drawable.sl);
                     break;
                 case "h":
-                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.h);
+                    backgroundimg.setImageResource(R.drawable.h);
                     break;
                 case "t":
-                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.t);
+                    backgroundimg.setImageResource(R.drawable.t);
                     break;
                 case "hr":
-                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.hr);
+                    backgroundimg.setImageResource(R.drawable.hr);
                     break;
                 case "lr":
-                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.lr);
+                    backgroundimg.setImageResource(R.drawable.lr);
                     break;
                 case "hc":
-                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.hc);
+                    backgroundimg.setImageResource(R.drawable.hc);
                     break;
                 case "lc":
-                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.lc);
+                    backgroundimg.setImageResource(R.drawable.lc);
                     break;
                 case "c":
-                    itemView.findViewById(R.id.locationLayout).setBackgroundResource(R.drawable.c);
+                    backgroundimg.setImageResource(R.drawable.c);
                     break;
             }
 
