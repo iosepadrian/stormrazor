@@ -95,6 +95,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
         }
 
         public void bind(Location location) {
+
             name.setText(location.getName());
             coordonate.setText(location.getCoordonate());
             temperature.setText(location.getTemperature());
@@ -103,6 +104,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
             String url="https://www.metaweather.com/static/img/weather/png/";
             url+=location.getSpecabrev();
             url+=".png";
+            
             Glide.with(mContext)
                     .load(url)
                     .into(img);

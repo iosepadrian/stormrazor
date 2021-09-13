@@ -211,6 +211,11 @@ private LocationDatabase mDb;
                         int newtemp1=(int)Math.round(temp1*1.8 +32);
                         location.setTemperature(String.valueOf(newtemp1)+"°");
                     }
+                    TextView myTemperature = findViewById(R.id.myLocationTemperatureTextView);
+                    String t=myTemperature.getText().toString();
+                    int t1=Integer.parseInt(t);
+                    int newt1=(int)Math.round(t1*1.8+32);
+                    myTemperature.setText(String.valueOf(newt1));
                     myAdapter.setData(myLocations);
 
                 }
@@ -229,6 +234,11 @@ private LocationDatabase mDb;
                         int newtemp1=(int)Math.round((temp1-32)*0.5556);
                         location.setTemperature(String.valueOf(newtemp1)+"°");
                     }
+                    TextView myTemperature = findViewById(R.id.myLocationTemperatureTextView);
+                    String t=myTemperature.getText().toString();
+                    int t1=Integer.parseInt(t);
+                    int newt1=(int)Math.round((t1-32)*0.5556);
+                    myTemperature.setText(String.valueOf(newt1));
                     myAdapter.setData(myLocations);
                 }
             }
